@@ -1,6 +1,6 @@
 
 `timescale 1ns/1ps
-module lab5_tb;
+module lab4_tb;
   logic [1:0] e;   
   logic [1:0] f; 
   logic g;
@@ -8,7 +8,7 @@ module lab5_tb;
   logic i;
   localparam period = 10;
 
-  lab5 foo(
+  lab4 foo(
     .a(e),
     .b(f),
     .r(g),

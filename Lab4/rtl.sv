@@ -1,4 +1,4 @@
-module Lab4(
+module lab4(
     input a0,
     input a1,
     input b0,
