@@ -1,4 +1,3 @@
-
 `timescale 1ns/1ps
 module lab4_tb;
   logic [1:0] e;   
@@ -9,45 +8,47 @@ module lab4_tb;
   localparam period = 10;
 
   lab4 foo(
-    .a(e),
-    .b(f),
+    .a0(e[0]),  
+    .a1(e[1]),  
+    .b0(f[0]),  
+    .b1(f[1]), 
     .r(g),
     .g(h),
-    .b(i)
+    .b(i)  
   );
 
   initial begin
-    e[0] = 0; e[1] = 0; f[0] = 0; f[1] = 0;
+    e = 2'b00; f = 2'b00;
     #period;
-    e[0] = 0; e[1] = 0; f[0] = 0; f[1] = 1;
+    e = 2'b00; f = 2'b01;
     #period;
-    e[0] = 0; e[1] = 0; f[0] = 1; f[1] = 0;
+    e = 2'b00; f = 2'b10;
     #period;
-    e[0] = 0; e[1] = 0; f[0] = 1; f[1] = 1;
+    e = 2'b00; f = 2'b11;
     #period;
-    e[0] = 0; e[1] = 1; f[0] = 0; f[1] = 0;
+    e = 2'b01; f = 2'b00;
     #period;
-    e[0] = 0; e[1] = 1; f[0] = 0; f[1] = 1;
+    e = 2'b01; f = 2'b01;
     #period;
-    e[0] = 0; e[1] = 1; f[0] = 1; f[1] = 0;
+    e = 2'b01; f = 2'b10;
     #period;
-    e[0] = 0; e[1] = 1; f[0] = 1; f[1] = 1;
+    e = 2'b01; f = 2'b11;
     #period;
-    e[0] = 1; e[1] = 0; f[0] = 0; f[1] = 0;
+    e = 2'b10; f = 2'b00;
     #period;
-    e[0] = 1; e[1] = 0; f[0] = 0; f[1] = 1;
+    e = 2'b10; f = 2'b01;
     #period;
-    e[0] = 1; e[1] = 0; f[0] = 1; f[1] = 0;
+    e = 2'b10; f = 2'b10;
     #period;
-    e[0] = 1; e[1] = 0; f[0] = 1; f[1] = 1;
+    e = 2'b10; f = 2'b11;
     #period;
-    e[0] = 1; e[1] = 1; f[0] = 0; f[1] = 0;
+    e = 2'b11; f = 2'b00;
     #period;
-    e[0] = 1; e[1] = 1; f[0] = 0; f[1] = 1;
+    e = 2'b11; f = 2'b01;
     #period;
-    e[0] = 1; e[1] = 1; f[0] = 1; f[1] = 0;
+    e = 2'b11; f = 2'b10;
     #period;
-    e[0] = 1; e[1] = 1; f[0] = 1; f[1] = 1;
+    e = 2'b11; f = 2'b11;
     #period;
     $stop;
   end

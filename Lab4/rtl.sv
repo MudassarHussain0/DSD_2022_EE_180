@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 
 module lab4(
     input a0,
