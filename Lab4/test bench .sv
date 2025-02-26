@@ -1,64 +1,61 @@
-
-module lab4_tb();
-    logic m0;
-    logic m1;
-    logic n0;
-    logic n1;   
-    logic x;
-    logic y;
-    logic z;
+`timescale 1ns/1ps
+module lab4_tb;
+  logic [1:0]m;   
+ 
+  logic [1:0]n;
+   
+  logic o;
+  logic p;
+  logic q;
 
 localparam period = 10;
 
-lab4 uut (
-    .a0(m0),
-    .a1(m1),
-    .b0(n0),
-    .b1(n1),
-    .r(x),
-    .g(y),
-    .b(z)
-);
-initial 
-begin
-    m1 = 0;  m0 = 0; n1 = 0; n0 = 0;
+lab4 foo(
+    .a(m),
+    .b(n),
+    .r(o),
+    .g(p),
+    .bl(q)
+  );
+
+  initial begin
+    m[1] = 0; m[0] = 0; n[1] = 0; n[0] = 0;
     #period;
-    m1 = 0;  m0 = 0; n1 = 0; n0 = 1;
+    m[1] = 0; m[0] = 0; n[1] = 0; n[0] = 1;
     #period;
-    m1 = 0;  m0 = 0; n1 = 1; n0 = 0;
+    m[1] = 0; m[0] = 0; n[1] = 1; n[0] = 0;
     #period;
-    m1 = 0;  m0 = 0; n1 = 1; n0 = 1;
+    m[1] = 0; m[0] = 0; n[1] = 1; n[0] = 1;
     #period;
-    m1 = 0;  m0 = 1; n1 = 0; n0 = 0;
+    m[1] = 0; m[0] = 1; n[1] = 0; n[0] = 0;
     #period;
-    m1 = 0;  m0 = 1; n1 = 0; n0 = 1;
+    m[1] = 0; m[0] = 1; n[1] = 0; n[0] = 1;
     #period;
-    m1 = 0;  m0 = 1; n1 = 1; n0 = 0;
+    m[1] = 0; m[0] = 1; n[1] = 1; n[0] = 0;
     #period;
-    m1 = 0;  m0 = 1; n1 = 1; n0 = 1;
+    m[1] = 0; m[0] = 1; n[1] = 1; n[0] = 1;
     #period;
-    m1 = 1;  m0 = 0; n1 = 0; n0 = 0;
+    m[1] = 1; m[0] = 0; n[1] = 0; n[0] = 0;
     #period;
-    m1 = 1;  m0 = 0; n1 = 0; n0 = 1;
+    m[1] = 1; m[0] = 0; n[1] = 0; n[0] = 1;
     #period;
-    m1 = 1;  m0 = 0; n1 = 1; n0 = 0;
+    m[1] = 1; m[0] = 0; n[1] = 1; n[0] = 0;
     #period;
-    m1 = 1;  m0 = 0; n1 = 1; n0 = 1;
+    m[1] = 1; m[0] = 0; n[1] = 1; n[0] = 1;
     #period;
-    m1 = 1;  m0 = 1; n1 = 0; n0 = 0;
+    m[1] = 1; m[0] = 1; n[1] = 0; n[0] = 0;
     #period;
-    m1 = 1;  m0 = 1; n1 = 0; n0 = 1;
+    m[1] = 1; m[0] = 1; n[1] = 0; n[0] = 1;
     #period;
-    m1 = 1;  m0 = 1; n1 = 1; n0 = 0;
+    m[1] = 1; m[0] = 1; n[1] = 1; n[0] = 0;
     #period;
-    m1 = 1;  m0 = 1; n1 = 1; n0 = 1;
+    m[1] = 1; m[0] = 1; n[1] = 1; n[0] = 1;
     #period;
     $stop;
-end 
+  end
 
-initial
-begin
-    $monitor("b=%b, g=%b, r=%b, a1=%b, a0=%b, b1=%b, b0=%b", z,y,x,m1,m0,n1,n0);
-end
-
+  initial begin
+    $monitor("r=%b, g=%b, bl=%b, a[1]=%b, a[0]=%b, b[1]=%b, b[0]=%b", o, p, q, m[1], m[0], n[1], n[0]);
+  end
+     
 endmodule
