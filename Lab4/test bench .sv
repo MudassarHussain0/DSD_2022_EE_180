@@ -1,60 +1,64 @@
-`timescale 1ns/1ps
-module lab4_tb;
-  logic [1:0] e;   
-  logic [1:0] f; 
-  logic g;
-  logic h;
-  logic i;
-  localparam period = 10;
 
-  lab4 foo(
-    .a0(e[0]),  
-    .a1(e[1]),  
-    .b0(f[0]),  
-    .b1(f[1]), 
-    .r(g),
-    .g(h),
-    .b(i)  
-  );
+module lab4_tb();
+    logic m0;
+    logic m1;
+    logic n0;
+    logic n1;   
+    logic x;
+    logic y;
+    logic z;
 
-  initial begin
-    e = 2'b00; f = 2'b00;
+localparam period = 10;
+
+lab4 uut (
+    .a0(m0),
+    .a1(m1),
+    .b0(n0),
+    .b1(n1),
+    .r(x),
+    .g(y),
+    .b(z)
+);
+initial 
+begin
+    m1 = 0;  m0 = 0; n1 = 0; n0 = 0;
     #period;
-    e = 2'b00; f = 2'b01;
+    m1 = 0;  m0 = 0; n1 = 0; n0 = 1;
     #period;
-    e = 2'b00; f = 2'b10;
+    m1 = 0;  m0 = 0; n1 = 1; n0 = 0;
     #period;
-    e = 2'b00; f = 2'b11;
+    m1 = 0;  m0 = 0; n1 = 1; n0 = 1;
     #period;
-    e = 2'b01; f = 2'b00;
+    m1 = 0;  m0 = 1; n1 = 0; n0 = 0;
     #period;
-    e = 2'b01; f = 2'b01;
+    m1 = 0;  m0 = 1; n1 = 0; n0 = 1;
     #period;
-    e = 2'b01; f = 2'b10;
+    m1 = 0;  m0 = 1; n1 = 1; n0 = 0;
     #period;
-    e = 2'b01; f = 2'b11;
+    m1 = 0;  m0 = 1; n1 = 1; n0 = 1;
     #period;
-    e = 2'b10; f = 2'b00;
+    m1 = 1;  m0 = 0; n1 = 0; n0 = 0;
     #period;
-    e = 2'b10; f = 2'b01;
+    m1 = 1;  m0 = 0; n1 = 0; n0 = 1;
     #period;
-    e = 2'b10; f = 2'b10;
+    m1 = 1;  m0 = 0; n1 = 1; n0 = 0;
     #period;
-    e = 2'b10; f = 2'b11;
+    m1 = 1;  m0 = 0; n1 = 1; n0 = 1;
     #period;
-    e = 2'b11; f = 2'b00;
+    m1 = 1;  m0 = 1; n1 = 0; n0 = 0;
     #period;
-    e = 2'b11; f = 2'b01;
+    m1 = 1;  m0 = 1; n1 = 0; n0 = 1;
     #period;
-    e = 2'b11; f = 2'b10;
+    m1 = 1;  m0 = 1; n1 = 1; n0 = 0;
     #period;
-    e = 2'b11; f = 2'b11;
+    m1 = 1;  m0 = 1; n1 = 1; n0 = 1;
     #period;
     $stop;
-  end
+end 
 
-  initial begin
-    $monitor("r=%b, g=%b, b=%b, a[0]=%b, a[1]=%b, b[0]=%b, b[1]=%b", g, h, i, e[0], e[1], f[0], f[1]);
-  end
-     
+initial
+begin
+    $monitor("b=%b, g=%b, r=%b, a1=%b, a0=%b, b1=%b, b0=%b", z,y,x,m1,m0,n1,n0);
+end
+
 endmodule
